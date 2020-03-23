@@ -1,7 +1,22 @@
-.title{
+.top__header{
+display:flex;
+justify-content: center;
+padding:20px;
+border-bottom: 1px solid lightgray;
+margin-bottom: 5%;
+
+.header__title{
   font-size: 30px;
   text-align: center;
   font-weight: bold;
   color:#291720;
   margin-bottom:40px;
+}
+.header__icon{
+  width:80px;
+  height:80px;
+  position:absolute;
+  opacity: 0.1;
+
+}
 }
