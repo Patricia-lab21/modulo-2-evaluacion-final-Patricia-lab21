@@ -39,6 +39,9 @@ function addFavs(event){
     event.currentTarget.classList.remove('normalColor');
     event.currentTarget.classList.add('favColor');
     const currentLi = event.currentTarget.id
+    const LiIndex= selectedMovies.indexOf(currentLi);
+    console.log(LiIndex);
+    console.log(selectedMovies);
     const object = getFavouriteObject(currentLi);
     if(selectedMovies.indexOf(currentLi)=== -1){
         selectedMovies.push(object.show);
@@ -73,10 +76,25 @@ function getFavouriteObject(id){
 function printFavourites(arrFav){
     listFav.innerHTML = '';
     for(let myFav of arrFav){
-        listFav.innerHTML+= `<li class ="myFavouriteLi" id=${myFav.id}><img src=${myFav.image.medium}><span class="spanFavouriteLi"><h3 class="titleMovieFavourite">${myFav.name}</h3></li>`
+        listFav.innerHTML+= `<li class ="myFavouriteLi" id=${myFav.id}><img src=${myFav.image.medium}><span class="spanFavouriteLi"></span><button type="button" class="button__remove">Borrar</button><span class="spanFavouriteLi"><h3 class="titleMovieFavourite">${myFav.name}</h3></li>`
+        addRemoveListeners();
     }
+    
 }
 
 
 button.addEventListener('click', startPage);
 
+function addRemoveListeners(){
+    const myButtons = document.querySelectorAll('.button__remove')
+    for(let remove of myButtons){
+        remove.addEventListener('click', removeFavourite);
+    }
+}
+function removeFavourite(){
+    const fullElementId = event.currentTarget.parentElement.id;
+    const elemIndex = selectedMovies.indexOf(fullElementId);
+    selectedMovies.splice(elemIndex,1);
+    setLocalStorage();
+    printFavourites(selectedMovies);
+}
