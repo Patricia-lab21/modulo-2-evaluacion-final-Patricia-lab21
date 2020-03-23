@@ -6,18 +6,34 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
+        .box-input{
+          width:300px;
+          height:55px;
+          background-color:#E63B2E;
+          display:flex;
+          box-shadow: 0 10px 25px #E63B2E;
+          align-items: center;
+          justify-content: center;
+          border:solid 7px rgba(255,255,255,0.2);
+          border-radius: 15px;
+        }
         .input{
-          border:solid 2px #E63B2E;
-          padding:2px;
           margin-right:15px;
-          color:#E63B2E;
+          color:white;
+          background-color: #E63B2E;
+          height:35px;
+          margin-left:10px;
+          border:0px;
+          width:100%;
         }
         .button{
           background-color: #E63B2E;
-          border-radius: 10%;
-          width:80px;
-          height:30px;
+          margin-right:20px;
           color:white;
+          border:none;
+            .len{
+              width:25px;
+            }
         }
     }
     .container-movies{

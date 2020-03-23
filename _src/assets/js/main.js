@@ -18,6 +18,7 @@ function startPage(){
 }
 
 function printFilms(arr){
+    
     listMovies.innerHTML='';
     for(let movie of arr){
         if(movie.show.image===null){
