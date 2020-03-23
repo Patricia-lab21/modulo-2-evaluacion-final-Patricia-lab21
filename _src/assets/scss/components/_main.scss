@@ -1,25 +1,6 @@
-/* dynamic */
-.normalColor{
-  color:black;
-}
-.favColor{
-  color:black;
-  background-color:#E63B2E;
-}
-.hidden{
-  display:none;
-}
-/* _______________ */
 .main{
   height:100vh;
   background-color:white;
-    .title{
-      font-size: 30px;
-      text-align: center;
-      font-weight: bold;
-      color:#291720;
-      margin-bottom:40px;
-    }
     .form{
       display:flex;
       flex-direction: row;
