@@ -1,4 +1,5 @@
 'use strict';
+const asideFav= document.querySelector('.aside_favourites');
 const listFav = document.querySelector('.listFav');
 const listMovies = document.querySelector('.listMovies');
 const input = document.querySelector('.input');
@@ -39,15 +40,13 @@ function addFavs(event){
     event.currentTarget.classList.remove('normalColor');
     event.currentTarget.classList.add('favColor');
     const currentLi = event.currentTarget.id
-    const LiIndex= selectedMovies.indexOf(currentLi);
-    console.log(LiIndex);
-    console.log(selectedMovies);
     const object = getFavouriteObject(currentLi);
+    console.log(object)
     if(selectedMovies.indexOf(currentLi)=== -1){
         selectedMovies.push(object.show);
         setLocalStorage();
         printFavourites(selectedMovies);
-    }else{
+     }else{
         alert('This film is alredy your favourite');
     }
 
@@ -78,11 +77,12 @@ function printFavourites(arrFav){
     for(let myFav of arrFav){
         listFav.innerHTML+= `<li class ="myFavouriteLi" id=${myFav.id}><img src=${myFav.image.medium}><span class="spanFavouriteLi"></span><button type="button" class="button__remove">Borrar</button><span class="spanFavouriteLi"><h3 class="titleMovieFavourite">${myFav.name}</h3></li>`
         addRemoveListeners();
+        asideFav.classList.remove('hidden');
     }
     
 }
 
-
+printFavourites(selectedMovies);
 button.addEventListener('click', startPage);
 
 function addRemoveListeners(){
