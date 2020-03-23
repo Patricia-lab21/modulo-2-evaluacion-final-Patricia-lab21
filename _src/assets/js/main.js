@@ -4,7 +4,7 @@ const listFav = document.querySelector('.listFav');
 const listMovies = document.querySelector('.listMovies');
 const input = document.querySelector('.input');
 const buttonMaria = document.querySelector('.button');
-const baseUrl = `http://api.tvmaze.com/search/shows?q=`;
+const baseUrl = `https://api.tvmaze.com/search/shows?q=`;
 let totalMovies = null;
 let selectedMovies = readLocalStorage();
 
