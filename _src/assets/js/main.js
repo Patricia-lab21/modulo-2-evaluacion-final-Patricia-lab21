@@ -3,10 +3,11 @@ const asideFav= document.querySelector('.aside_favourites');
 const listFav = document.querySelector('.listFav');
 const listMovies = document.querySelector('.listMovies');
 const input = document.querySelector('.input');
-const buttonMaria = document.querySelector('.button');
+const button = document.querySelector('.button');
 const baseUrl = `https://api.tvmaze.com/search/shows?q=`;
 let totalMovies = null;
 let selectedMovies = readLocalStorage();
+
 
 function startPage(){
     fetch(baseUrl+input.value)
@@ -50,8 +51,8 @@ function addFavs(event){
     const currentLi = event.currentTarget.id
     const object = getFavouriteObject(currentLi);
     if(selectedMovies.indexOf(currentLi)=== -1){
+        /* selectedMovies.push(currentLi); */
         selectedMovies.push(object.show);
-        selectedMovies.push(currentLi);
         setLocalStorage();
         printFavourites(selectedMovies);
      }else{
@@ -102,6 +103,3 @@ function removeFavourite(){
     setLocalStorage();
     printFavourites(selectedMovies);
 }
-
-
-
