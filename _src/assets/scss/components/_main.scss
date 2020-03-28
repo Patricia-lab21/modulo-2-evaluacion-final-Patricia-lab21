@@ -5,8 +5,10 @@
       display:flex;
       flex-direction: row;
       justify-content: center;
-      align-items: center;
+      align-items:top;
+      height:15%;
         .box-input{
+          margin-top:20px;
           width:300px;
           height:55px;
           background-color:#E63B2E;
@@ -33,6 +35,9 @@
           border:none;
             .len{
               width:25px;
+              &:hover{
+                width:30px;
+              }
             }
         }
     }

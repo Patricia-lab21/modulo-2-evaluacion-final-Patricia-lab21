@@ -26,8 +26,9 @@ function printFilms(arr){
         }else{
             listMovies.innerHTML += `<li class ="myLi normalColor" id=${movie.show.id}><img src=${movie.show.image.medium}><span class="spanLi"><h3 class="titleMovie">${movie.show.name}</h3></li>`
         }
+        addListeners() 
         }
-        addListeners()  
+        
     }
 /* Encontrar listeners para añadir favoritos */
 function addListeners(){
@@ -36,15 +37,21 @@ function addListeners(){
         li.addEventListener('click', addFavs);
     }
 }
+
+function getFavouriteObject(id){
+    return totalMovies.find(movie => movie.show.id === parseInt(id))
+
+}
+
 /* Guardar en favoritos con cada click */
 function addFavs(event){
     event.currentTarget.classList.remove('normalColor');
     event.currentTarget.classList.add('favColor');
     const currentLi = event.currentTarget.id
     const object = getFavouriteObject(currentLi);
-    console.log(object)
     if(selectedMovies.indexOf(currentLi)=== -1){
         selectedMovies.push(object.show);
+        selectedMovies.push(currentLi);
         setLocalStorage();
         printFavourites(selectedMovies);
      }else{
@@ -65,12 +72,8 @@ function readLocalStorage(){
     if(localFavourites !== null){
         return localFavourites;
     }else{
-    return localFavourites = [];
+    return localFavourites = [];/* para que no aparezca mi lista de favoritos mal, mejor que salga vacía */
 }
-}
-function getFavouriteObject(id){
-    return totalMovies.find(movie => movie.show.id === parseInt(id))
-
 }
 
 function printFavourites(arrFav){
@@ -95,7 +98,10 @@ function addRemoveListeners(){
 function removeFavourite(){
     const fullElementId = event.currentTarget.parentElement.id;
     const elemIndex = selectedMovies.indexOf(fullElementId);
-    selectedMovies.splice(elemIndex,1);
+    selectedMovies.splice(elemIndex,1);/* no encuentra mi elemIndex, por eso me borra la última */
     setLocalStorage();
     printFavourites(selectedMovies);
 }
+
+
+
