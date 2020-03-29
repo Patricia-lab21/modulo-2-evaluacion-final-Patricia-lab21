@@ -39,31 +39,8 @@ function addListeners(){
     }
 }
 
-function getFavouriteObject(id){
-    return totalMovies.find(movie => movie.show.id === parseInt(id))
-
-}
-
-/* Guardar en favoritos con cada click */
-function addFavs(event){
-    event.currentTarget.classList.remove('normalColor');
-    event.currentTarget.classList.add('favColor');
-    const currentLi = event.currentTarget.id
-    const object = getFavouriteObject(currentLi);
-    if(selectedMovies.indexOf(currentLi)=== -1){
-        /* selectedMovies.push(currentLi); */
-        selectedMovies.push(object.show);
-        setLocalStorage();
-        printFavourites(selectedMovies);
-     }else{
-        alert('This film is alredy your favourite');
-    }
-
-}
-
-
 /* save in LocalStorage */
-function setLocalStorage(favourites){
+function setLocalStorage(){
     localStorage.setItem('myFavourites', JSON.stringify(selectedMovies));
 }
 
@@ -77,18 +54,38 @@ function readLocalStorage(){
 }
 }
 
+function getFavouriteObject(id){
+    return totalMovies.find(movie => movie.show.id === parseInt(id))
+
+}
+
+/* Guardar en favoritos con cada click */
+function addFavs(event){
+    event.currentTarget.classList.remove('normalColor');
+    event.currentTarget.classList.add('favColor');
+    const currentLi = event.currentTarget.id
+    const object = getFavouriteObject(currentLi);
+    if(selectedMovies.indexOf(currentLi)=== -1){
+       /*  selectedMovies.push(currentLi); */
+        selectedMovies.push(object.show);
+        setLocalStorage();
+        printFavourites(selectedMovies);
+     }else{
+        alert('This film is alredy your favourite');
+    }
+
+}
+
 function printFavourites(arrFav){
     listFav.innerHTML = '';
     for(let myFav of arrFav){
         listFav.innerHTML+= `<li class ="myFavouriteLi" id=${myFav.id}><img src=${myFav.image.medium}><span class="spanFavouriteLi"></span><button type="button" class="button__remove">Borrar</button><span class="spanFavouriteLi"><h3 class="titleMovieFavourite">${myFav.name}</h3></li>`
-        addRemoveListeners();
         asideFav.classList.remove('hidden');
     }
-    
+    addRemoveListeners();
 }
 
-printFavourites(selectedMovies);
-button.addEventListener('click', startPage);
+
 
 function addRemoveListeners(){
     const myButtons = document.querySelectorAll('.button__remove')
@@ -103,3 +100,6 @@ function removeFavourite(){
     setLocalStorage();
     printFavourites(selectedMovies);
 }
+
+button.addEventListener('click', startPage);
+printFavourites(selectedMovies);
