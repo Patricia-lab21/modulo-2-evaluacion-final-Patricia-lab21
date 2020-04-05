@@ -65,41 +65,54 @@ function addFavs(event){
     event.currentTarget.classList.add('favColor');
     const currentLi = event.currentTarget.id
     const object = getFavouriteObject(currentLi);
-    if(selectedMovies.indexOf(currentLi)=== -1){
-       /*  selectedMovies.push(currentLi); */
+    if(selectedMovies.indexOf(object.show)=== -1){ /* indexOf(currentLi */
         selectedMovies.push(object.show);
         setLocalStorage();
         printFavourites(selectedMovies);
      }else{
         alert('This film is alredy your favourite');
+        
     }
 
 }
 
-function printFavourites(arrFav){
+
+function printFavourites(arr){
     listFav.innerHTML = '';
-    for(let myFav of arrFav){
+    for(let myFav of arr){
+        if(myFav.image!==null){
         listFav.innerHTML+= `<li class ="myFavouriteLi" id=${myFav.id}><img src=${myFav.image.medium}><span class="spanFavouriteLi"></span><button type="button" class="button__remove">Borrar</button><span class="spanFavouriteLi"><h3 class="titleMovieFavourite">${myFav.name}</h3></li>`
         asideFav.classList.remove('hidden');
+        }else{
+            listFav.innerHTML+= `<li class ="myFavouriteLi" id=${myFav.id}><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV"><span class="spanFavouriteLi"></span><button id=${myFav.id} type="button" class="button__remove">Borrar</button><span class="spanFavouriteLi"><h3 class="titleMovieFavourite">${myFav.name}</h3></li>`  
+            asideFav.classList.remove('hidden');
+        }
     }
-    addRemoveListeners();
+   addRemoveListeners();
 }
-
 
 
 function addRemoveListeners(){
     const myButtons = document.querySelectorAll('.button__remove')
     for(let remove of myButtons){
         remove.addEventListener('click', removeFavourite);
+        
     }
 }
-function removeFavourite(){
-    const fullElementId = event.currentTarget.parentElement.id;
-    const elemIndex = selectedMovies.indexOf(fullElementId);
-    selectedMovies.splice(elemIndex,1);/* no encuentra mi elemIndex, por eso me borra la última */
+function removeFavourite(event){
+    let fullElementId = event.currentTarget.parentElement.id;
+    let fullElement = event.currentTarget.parentElement
+    let fullButtonId = event.currentTarget.id;
+    console.log(event.currentTarget)
+    if(fullButtonId = fullElementId){
+        selectedMovies.splice(fullElement,1);
+    }
+   /*  const elemIndex = selectedMovies.indexOf(fullElementId);
+    selectedMovies.splice(elemIndex);/* no encuentra mi elemIndex, por eso me borra la última */
     setLocalStorage();
     printFavourites(selectedMovies);
 }
 
-button.addEventListener('click', startPage);
+
 printFavourites(selectedMovies);
+button.addEventListener('click', startPage);
