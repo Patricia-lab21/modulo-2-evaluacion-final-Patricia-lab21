@@ -69,6 +69,7 @@ function addFavs(event){
         selectedMovies.push(object.show);
         setLocalStorage();
         printFavourites(selectedMovies);
+        console.log(selectedMovies)
      }else{
         alert('This film is alredy your favourite');
         
@@ -101,18 +102,11 @@ function addRemoveListeners(){
 }
 function removeFavourite(event){
     let fullElementId = event.currentTarget.parentElement.id;
-    let fullElement = event.currentTarget.parentElement
-    let fullButtonId = event.currentTarget.id;
-    console.log(event.currentTarget)
-    if(fullButtonId = fullElementId){
-        selectedMovies.splice(fullElement,1);
-    }
-   /*  const elemIndex = selectedMovies.indexOf(fullElementId);
-    selectedMovies.splice(elemIndex);/* no encuentra mi elemIndex, por eso me borra la última */
+    const findMovie= selectedMovies.findIndex(movies => parseInt(movies.id) === parseInt(fullElementId));
+    selectedMovies.splice(findMovie, 1);
     setLocalStorage();
     printFavourites(selectedMovies);
 }
-
 
 printFavourites(selectedMovies);
 button.addEventListener('click', startPage);
