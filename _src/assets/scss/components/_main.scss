@@ -42,47 +42,68 @@
         }
     }
     .container-movies{
-      margin-top:10%;
+      margin-top:5%;
       display:flex;
-      flex-direction: row;
+      flex-direction: column;
       
         .aside_favourites{
           color:white;
-          background-color: lightgray;
-          width:30vw;
+          background: (linear-gradient( rgba(248,80,50,1) 0%, rgba(241,111,92,1) 100%));
           padding:10px;
+          display:flex;
+          align-items: center;
+          width:100%;
+
+          
             .title__favourites{
               color:black;
               font-size: 18px;
               text-align: center;
-              margin-bottom: 5px;
+              margin-bottom: 10px;
+              font-size: 20px;
+                .star{
+                  width:50px;
+                  margin-left:0px;
+                }
+            }
+            .listFav{
+              display:flex;
+              align-items: center;
+              justify-content: center;
+              margin-top:5px;
             }
             .myFavouriteLi{
               display:flex;
               flex-direction: column;
+              display:flex;
               justify-content: center;
               align-items: center;
-              padding:5px;
+              color:black;
                 .button__remove{
-                  background-color: white;
-                  margin-top:10px;
+                  background-color: black;
+                  width:20px;
+                  border-radius: 100%;
+                  border: none;
+                  color:white;
+                  margin-bottom:20px;
+                  padding:8px;
+                  font-size: 9px;
                 }
                 .titleMovieFavourite{
-                  margin:20px;
-                  background-color: #E63B2E;
+                  margin:10px;
                   width:100px;
-                  height:20px;
                   text-align: center;
-                  font-size:16px;
+                  font-size: 9px;
                 }
                 img{
-                  width:100px;
+                  width:80px;
                 }
 
               }
             }
               
             }
+
         .aside_movies{
           width:100%;
           margin-left:20px;
@@ -91,21 +112,34 @@
             display:flex;
             flex-direction: row;
             flex-wrap: wrap;
-
-            
-            
              .myLi{
                max-width:33%;
                padding:15px;
                 img{
                   width:100%;
                 }
-                .titleMovie{
-                  font-size:12px;
-                  text-align: center;
+                  .titleMovie{
+                    font-size:18px;
+                    text-align: center;
+                  }
+                .startMyfav{
+                  width:20px;
+                  height:20px;
+                  background-color: lightsalmon;
+                  justify-content: center;
+                  align-items: center;
+                  position:absolute;
+                    .starFav{
+                      width:15px;
+                      height: 15px;
+                      
+                    }
                 }
-              }
+            }
+              
+            }
         }
       }
-         
-        }
+.starFav{
+  width:20px;
+}
