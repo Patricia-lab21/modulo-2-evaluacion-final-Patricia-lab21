@@ -1,6 +1,8 @@
 .hidden{
     display:none;
   }
-.black{
-  border:black 1px solid;
-}
+  .black{
+    border:black 2px solid;
+    transition:all 1s;
+    transform: scale(1.1)
+    }

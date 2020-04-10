@@ -74,29 +74,16 @@
             flex-wrap: wrap;
             
              .myLi{
-               margin:5px;
+               margin:20px;
                max-width:33%;
                padding:15px;
                 img{
                   width:100%;
                 }
                   .titleMovie{
-                    font-size:18px;
+                    font-size:14px;
                     text-align: center;
                   }
-                .startMyfav{
-                  width:20px;
-                  height:20px;
-                  background-color: lightsalmon;
-                  justify-content: center;
-                  align-items: center;
-                  position:absolute;
-                    .starFav{
-                      width:15px;
-                      height: 15px;
-                      
-                    }
-                }
             }
               
             }

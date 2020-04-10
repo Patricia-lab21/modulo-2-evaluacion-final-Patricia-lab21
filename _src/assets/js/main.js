@@ -24,10 +24,9 @@ function printFilms(arr){
     for(let movie of arr){
         if(movie.show.image===null){
             listMovies.innerHTML += `<li class ="myLi" id=${movie.show.id}>
-            <img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV"><span class="spanLi"></span><h3 class="titleMovie">${movie.show.name}</h3><img class="starFav" src="./star.png"/></li>`
+            <img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV"><span class="spanLi"></span><h3 class="titleMovie">${movie.show.name}</h3></li>`
         }else{
-            listMovies.innerHTML += `<li class ="myLi" id=${movie.show.id}><div id=${movie.show.id} class="startMyfav hidden"><img class="starFav" src="./star.png"/>
-            </div><img src=${movie.show.image.medium}><span class="spanLi"><h3 class="titleMovie">${movie.show.name}</h3></li>`
+            listMovies.innerHTML += `<li class ="myLi" id=${movie.show.id}><img src=${movie.show.image.medium}><span class="spanLi"><h3 class="titleMovie">${movie.show.name}</h3></li>`
         }
         addListeners() 
         }
