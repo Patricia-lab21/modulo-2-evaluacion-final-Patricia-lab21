@@ -1,6 +1,5 @@
 'use strict';
 const asideFav= document.querySelector('.aside_favourites');
-
 const listFav = document.querySelector('.listFav');
 const listMovies = document.querySelector('.listMovies');
 const input = document.querySelector('.input');
@@ -27,17 +26,14 @@ function printFilms(arr){
             listMovies.innerHTML += `<li class ="myLi" id=${movie.show.id}>
             <img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV"><span class="spanLi"></span><h3 class="titleMovie">${movie.show.name}</h3><img class="starFav" src="./star.png"/></li>`
         }else{
-            listMovies.innerHTML += `<li class ="myLi" id=${movie.show.id}>
-            <div class="startMyfav hidden">
-                <img class="starFav" src="./star.png"/>
-            </div>
-                <img src=${movie.show.image.medium}><span class="spanLi"><h3 class="titleMovie">${movie.show.name}</h3></li>`
+            listMovies.innerHTML += `<li class ="myLi" id=${movie.show.id}><div id=${movie.show.id} class="startMyfav hidden"><img class="starFav" src="./star.png"/>
+            </div><img src=${movie.show.image.medium}><span class="spanLi"><h3 class="titleMovie">${movie.show.name}</h3></li>`
         }
         addListeners() 
         }
         
     }
-/* Encontrar listeners para añadir favoritos */
+
 function addListeners(){
     const totalLis = document.querySelectorAll('.myLi');
     for(let li of totalLis){
@@ -45,18 +41,19 @@ function addListeners(){
     }
 }
 
-/* save in LocalStorage */
+
+
 function setLocalStorage(){
     localStorage.setItem('myFavourites', JSON.stringify(selectedMovies));
 }
 
-/* red my LocalStorage, lee los valores que haya dentro de mi array */
+
 function readLocalStorage(){
     let localFavourites = JSON.parse(localStorage.getItem('myFavourites'));
     if(localFavourites !== null){
         return localFavourites;
     }else{
-    return localFavourites = [];/* para que no aparezca mi lista de favoritos mal, mejor que salga vacía */
+    return localFavourites = [];
 }
 }
 
@@ -65,17 +62,16 @@ function getFavouriteObject(id){
 
 }
 
-/* Guardar en favoritos con cada click */
+
 function addFavs(event){
-    const myStar = document.querySelector('.startMyfav');
+    const currentFilm = event.currentTarget
     const currentLi = event.currentTarget.id
     const object = getFavouriteObject(currentLi);
     if(selectedMovies.indexOf(object.show)=== -1){
         selectedMovies.push(object.show);
-        myStar.classList.remove('hidden')
-        setLocalStorage();
+        currentFilm.classList.add('black')
         printFavourites(selectedMovies);
-        console.log(selectedMovies)
+        setLocalStorage();
      }else{
         alert('This film is alredy your favourite');
         

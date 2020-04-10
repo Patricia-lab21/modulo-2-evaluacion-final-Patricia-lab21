@@ -1,48 +1,7 @@
 .main{
   height:100vh;
   background-color:white;
-    .form{
-      display:flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items:top;
-      height:15%;
-        .box-input{
-          margin-top:20px;
-          width:300px;
-          height:55px;
-          background-color:#E63B2E;
-          display:flex;
-          box-shadow: 0 10px 25px #E63B2E;
-          align-items: center;
-          justify-content: center;
-          border:solid 7px rgba(255,255,255,0.2);
-          border-radius: 15px;
-        }
-        .input{
-          margin-right:15px;
-          color:white;
-          background-color: #E63B2E;
-          height:35px;
-          margin-left:10px;
-          border:0px;
-          width:100%;
-        }
-        .button{
-          background-color: #E63B2E;
-          margin-right:20px;
-          color:white;
-          border:none;
-            .len{
-              width:25px;
-              &:hover{
-                width:30px;
-              }
-            }
-        }
-    }
     .container-movies{
-      margin-top:5%;
       display:flex;
       flex-direction: column;
       
@@ -53,6 +12,7 @@
           display:flex;
           align-items: center;
           width:100%;
+          margin-bottom:5%;
 
           
             .title__favourites{
