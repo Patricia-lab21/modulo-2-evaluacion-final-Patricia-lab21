@@ -1,13 +1,9 @@
 .main{
-    .container-movies{
-      display:flex;
-      flex-direction: row;
-      
+  display:flex;
         .aside_favourites{
           color:white;
-          padding:10px;
-          margin-bottom:5%;
-          margin-top:430px;
+          padding:20px;
+
             .title__favourites{
               color:white;
               font-size: 18px;
@@ -26,7 +22,6 @@
                 position:relative;
                 align-items: center;
                 justify-content: space-around;
-                margin-left:40px;
                   .button__remove{
                     background-color: rgba(230, 59, 46,0.8);
                     width:45px;
@@ -59,15 +54,12 @@
               }
 
         .aside_movies{
+          margin-top:40px;
           .listMovies{
             list-style-type: none;
             display:grid;
             grid-template-columns: 1fr 1fr 1fr;
-            grid-row-gap:45px;
-            justify-content: center;
-            position:absolute;
-            left:450px;
-            
+            grid-row-gap:5px;
              .myLi{
               margin:20px;
               width:280px;
@@ -91,6 +83,5 @@
               
             }
         }
-      }
 
 
