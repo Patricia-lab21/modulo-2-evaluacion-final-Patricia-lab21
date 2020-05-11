@@ -1,62 +1,60 @@
 .main{
-  height:100vh;
-  background-color:white;
     .container-movies{
       display:flex;
-      flex-direction: column;
+      flex-direction: row;
       
         .aside_favourites{
           color:white;
-          background: (linear-gradient( rgba(248,80,50,1) 0%, rgba(241,111,92,1) 100%));
           padding:10px;
-          display:flex;
-          align-items: center;
-          width:100%;
           margin-bottom:5%;
-
-          
+          margin-top:430px;
             .title__favourites{
-              color:black;
+              color:white;
               font-size: 18px;
               text-align: center;
               margin-bottom: 10px;
               font-size: 20px;
-                .star{
-                  width:50px;
-                  margin-left:0px;
-                }
-            }
-            .listFav{
-              display:flex;
-              align-items: center;
-              justify-content: center;
-              margin-top:5px;
             }
             .myFavouriteLi{
-              display:flex;
-              flex-direction: column;
-              display:flex;
               justify-content: center;
               align-items: center;
-              color:black;
+              color:white;
+              position:relative;
+              .containerFavFilm{
+                background-color: rgba(255,255,255,0.1);
+                width:300px;
+                border-radius: 20px;
+                height:150px;
+                margin-bottom:20px;
+                display:flex;
+                align-items: center;
+                justify-content: space-around;
+                margin-left:40px;
+              }
                 .button__remove{
-                  background-color: black;
-                  width:20px;
-                  border-radius: 100%;
+                  background-color: rgba(230, 59, 46,0.8);
+                  width:45px;
+                  height:40px;
                   border: none;
                   color:white;
-                  margin-bottom:20px;
                   padding:8px;
-                  font-size: 9px;
+                  font-size: 16px;
+                  font-weight: bold;
+                  position:absolute;
+                  top:0px;
+                  right:0px;
+                  border-top-right-radius: 20px;
+                  border-bottom-left-radius: 20px;
                 }
                 .titleMovieFavourite{
-                  margin:10px;
                   width:100px;
                   text-align: center;
-                  font-size: 9px;
+                  font-size: 20px;
                 }
                 img{
-                  width:80px;
+                  width:100px;
+                  height:130px;
+                  border-radius: 10px;
                 }
 
               }
@@ -65,30 +63,39 @@
             }
 
         .aside_movies{
-          width:100%;
-          margin-left:20px;
+          margin-left:500px;
+          margin-right:100px;
           .listMovies{
             list-style-type: none;
-            display:flex;
-            flex-direction: row;
-            flex-wrap: wrap;
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-row-gap:45px;
+            justify-content: center;
             
              .myLi{
-               margin:20px;
-               max-width:33%;
-               padding:15px;
+              margin:20px;
+              background-color: rgba(255,255,255,0.1);
+              width:280px;
+              border-radius: 10px;
+              display:flex;
+              flex-direction: column;
+              align-items: center;
+              height:350px;
+              justify-content: center;
                 img{
-                  width:100%;
+                  width:200px;
+                  border-radius: 10px;
                 }
                   .titleMovie{
-                    font-size:14px;
+                    font-size:20px;
                     text-align: center;
+                    color:white;
+                    margin-top:10px;
                   }
             }
               
             }
         }
       }
-.starFav{
-  width:20px;
-}
+
+

@@ -63,6 +63,7 @@ function getFavouriteObject(id){
 
 
 function addFavs(event){
+
     const currentFilm = event.currentTarget
     const currentLi = event.currentTarget.id
     const object = getFavouriteObject(currentLi);
@@ -83,10 +84,10 @@ function printFavourites(arr){
     listFav.innerHTML = '';
     for(let myFav of arr){
         if(myFav.image!==null){
-        listFav.innerHTML+= `<li class ="myFavouriteLi" id=${myFav.id}><img src=${myFav.image.medium}><span class="spanFavouriteLi"></span><h3 class="titleMovieFavourite">${myFav.name}</h3><button type="button" class="button__remove">X</button><span class="spanFavouriteLi"></li>`
+        listFav.innerHTML+= `<li class ="myFavouriteLi" id=${myFav.id}><div class="containerFavFilm"><img src=${myFav.image.medium}><span class="spanFavouriteLi"></span><h3 class="titleMovieFavourite">${myFav.name}</h3><button type="button" class="button__remove">X</button><span class="spanFavouriteLi"></div></li>`
         asideFav.classList.remove('hidden');
         }else{
-            listFav.innerHTML+= `<li class ="myFavouriteLi" id=${myFav.id}><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV"><span class="spanFavouriteLi"></span><h3 class="titleMovieFavourite">${myFav.name}</h3><button id=${myFav.id} type="button" class="button__remove">X</button><span class="spanFavouriteLi"></li>`  
+            listFav.innerHTML+= `<li class ="myFavouriteLi" id=${myFav.id}><div class="containerFavFilm"><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV"><span class="spanFavouriteLi"></span><h3 class="titleMovieFavourite">${myFav.name}</h3><button id=${myFav.id} type="button" class="button__remove">X</button><span class="spanFavouriteLi"></div></li>`  
             asideFav.classList.remove('hidden');
         }
     }
