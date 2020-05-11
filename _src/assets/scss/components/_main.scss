@@ -59,13 +59,14 @@
               }
 
         .aside_movies{
-          margin-left:500px;
           .listMovies{
             list-style-type: none;
             display:grid;
             grid-template-columns: 1fr 1fr 1fr;
             grid-row-gap:45px;
             justify-content: center;
+            position:absolute;
+            left:450px;
             
              .myLi{
               margin:20px;
