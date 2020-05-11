@@ -1,1 +1,5 @@
-Página creada con Javascript para conocer como importar datos desde una API, y guardarlos en LocalStorage.
+Find movies from api! 🎥
+
+Website built with Javascript & Sass to learn how to deal with Local Storage.
+
+(Project at Adalab)
