@@ -23,10 +23,10 @@ function printFilms(arr){
     listMovies.innerHTML='';
     for(let movie of arr){
         if(movie.show.image===null){
-            listMovies.innerHTML += `<li class ="myLi" id=${movie.show.id}>
+            listMovies.innerHTML += `<li class ="myLi grey" id=${movie.show.id}>
             <img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV"><span class="spanLi"></span><h3 class="titleMovie">${movie.show.name}</h3></li>`
         }else{
-            listMovies.innerHTML += `<li class ="myLi" id=${movie.show.id}><img src=${movie.show.image.medium}><span class="spanLi"><h3 class="titleMovie">${movie.show.name}</h3></li>`
+            listMovies.innerHTML += `<li class ="myLi grey" id=${movie.show.id}><img src=${movie.show.image.medium}><span class="spanLi"><h3 class="titleMovie">${movie.show.name}</h3></li>`
         }
         addListeners() 
         }
@@ -69,6 +69,7 @@ function addFavs(event){
     const object = getFavouriteObject(currentLi);
     if(selectedMovies.indexOf(object.show)=== -1){
         selectedMovies.push(object.show);
+        currentFilm.classList.remove('grey')
         currentFilm.classList.add('black')
         printFavourites(selectedMovies);
         setLocalStorage();
@@ -84,14 +85,16 @@ function printFavourites(arr){
     listFav.innerHTML = '';
     for(let myFav of arr){
         if(myFav.image!==null){
-        listFav.innerHTML+= `<li class ="myFavouriteLi" id=${myFav.id}><div class="containerFavFilm"><img src=${myFav.image.medium}><span class="spanFavouriteLi"></span><h3 class="titleMovieFavourite">${myFav.name}</h3><button type="button" class="button__remove">X</button><span class="spanFavouriteLi"></div></li>`
+        listFav.innerHTML+= `<li class ="myFavouriteLi" id=${myFav.id}><img src=${myFav.image.medium}><span class="spanFavouriteLi"></span><h3 class="titleMovieFavourite">${myFav.name}</h3><button type="button" class="button__remove">X</button><span class="spanFavouriteLi"></li>`
         asideFav.classList.remove('hidden');
+        addRemoveListeners();
         }else{
-            listFav.innerHTML+= `<li class ="myFavouriteLi" id=${myFav.id}><div class="containerFavFilm"><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV"><span class="spanFavouriteLi"></span><h3 class="titleMovieFavourite">${myFav.name}</h3><button id=${myFav.id} type="button" class="button__remove">X</button><span class="spanFavouriteLi"></div></li>`  
+            listFav.innerHTML+= `<li class ="myFavouriteLi" id=${myFav.id}><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV"><span class="spanFavouriteLi"></span><h3 class="titleMovieFavourite">${myFav.name}</h3><button id=${myFav.id} type="button" class="button__remove">X</button><span class="spanFavouriteLi"></li>`  
             asideFav.classList.remove('hidden');
+            addRemoveListeners();
         }
     }
-   addRemoveListeners();
+  
 }
 
 
@@ -103,7 +106,7 @@ function addRemoveListeners(){
     }
 }
 function removeFavourite(event){
-    let fullElementId = event.currentTarget.parentElement.id;
+    const fullElementId = event.currentTarget.parentElement.id;
     const findMovie= selectedMovies.findIndex(movies => parseInt(movies.id) === parseInt(fullElementId));
     selectedMovies.splice(findMovie, 1);
     setLocalStorage();
